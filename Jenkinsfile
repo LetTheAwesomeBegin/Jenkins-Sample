@@ -32,6 +32,12 @@ pipeline {
         }
       }
     }
+    stage('JIRA') {
+      steps {
+        jiraComment(issueKey: '12345', body: 'Blah blah blah')
+        jiraSearch 'close=true'
+      }
+    }
   }
   environment {
     ENV = 'DEV'
